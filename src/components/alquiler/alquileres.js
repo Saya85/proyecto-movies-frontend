@@ -4,24 +4,21 @@ import { Link, useParams } from "react-router-dom";
 
 
 
-const CitasMascota = () => {
-    const citas = [
-        { fecha:'21/12/2022'}, 
-        { fecha:'21/8/2022'},
-        { fecha:'20/12/2022'}
+const Alquileres = () => {
+    const alquileres = [
+        {nombre:'Accident', fecha:'21/12/2022'}, 
+        {nombre:'King and I', fecha:'21/8/2022'},
+        {nombre:'Green slime', fecha:'20/12/2022'}
     ]
-    const {nombre} = useParams()
     return (
         <div>
             
-                <h2>Citas de {nombre}</h2>
+                <h2>tus alquileres</h2>
                 <ul>
-                    {citas.map(cita => (
+                    {alquileres.map(alquiler => (
                         <li className="d-flex align-items-center mb-6">
-                        <p className='col-3'>{cita.fecha}</p>
-                        <Link className="col-3" to='/perfil/modCita'>modificar</Link>
-                        <Link className="col-3" to='/perfil/cancelarCita'>cancerlar</Link> 
-                         
+                        <p className="col-6" >{alquiler.nombre}</p>    
+                        <p className='col-6'>{alquiler.fecha}</p>
                         </li>
                     ))}
                 </ul>
@@ -30,4 +27,4 @@ const CitasMascota = () => {
     )
 }
 
-export default CitasMascota
+export default Alquileres

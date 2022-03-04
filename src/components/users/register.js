@@ -24,7 +24,7 @@ class Register extends React.Component {
               console.log(this.state.nombre, this.state.apellidos, this.state.email, this.state.password);
             
       
-              if (!this.state.email || !this.state.password || !this.state.nombre) {
+        if (!this.state.email || !this.state.password || !this.state.nombre) {
             console.log('fields required!!!');
           } else {
             setTimeout(() => {

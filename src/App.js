@@ -7,7 +7,8 @@ import Home from './components/home';
 import Login from './components/users/login'
 import Movies from './components/movies/movies';
 import Register from './components/users/register';
-
+import Alquileres from './components/alquiler/alquileres'
+import Alquiler from './components/alquiler/alquiler'
 
 
 function App() {
@@ -18,14 +19,10 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route path='' element= {<Home/>}/>
            <Route path='login' element={<Login />} /> 
-          {/* <Route path='logout' element={<Logout />} /> */}
            <Route path='register' element={<Register />} /> 
            <Route path='/movies' element={<Movies/>}/>
-          {/* Paths Usuarios */}
-          {/* <Route path='perfil' element={<Perfil />} /> */}
-            {/* <Route path='/logout' element={<Logout />} /> */}
-            {/* <Route path='/logoutAll' element={<LogoutAll />} /> */}
-            {/* <Route path='/eliminarCuenta' element={<EliminarCuenta />} /> */}
+           <Route path='/alquiler/:id' element={<Alquiler/>}/>
+           <Route path='/alquileres' element={<Alquileres/>}/>
         </Route>
       </Routes>
     </div>
