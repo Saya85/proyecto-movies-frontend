@@ -5,7 +5,7 @@ import AuthService from "../../services/auth";
 class Register extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {nombre:"", apellidos:"", password: "", confPassword: "", email: "", submitDone: false, passwordMatch: false }
+        this.state = {name:"", password: "", confPassword: "", email: "", submitDone: false, passwordMatch: false }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     } 
@@ -21,17 +21,14 @@ class Register extends React.Component {
                 this.setState({passwordMatch: true})
             )
               console.log('registrado');
-              console.log(this.state.nombre, this.state.apellidos, this.state.email, this.state.password);
-            
-      
-        if (!this.state.email || !this.state.password || !this.state.nombre) {
-            console.log('fields required!!!');
-          } else {
-            setTimeout(() => {
-              console.log('submitted!!!!');
-              console.log(this.state);
-              this.setState({ submitDone:true })
-            }, 3000)}
+              console.log(this.state.name, this.state.email, this.state.password);
+        AuthService.register(
+            this.state.name,this.state.email,this.state.password)
+            .then((res)=>{
+                if(res){
+                    this.setState({submitDone:true})
+                }
+            })    
         } catch (error) {
         }
     }
@@ -44,11 +41,7 @@ class Register extends React.Component {
                     <div className="container d-flex flex-column align-items-between justify-content-center" >
                         <label className="row m-2">
                             <p className="col-6">Nombre:</p>
-                            <input className="col-6" name="nombre" type='text' required value={this.state.nombre} onChange={this.handleChange} />
-                        </label>
-                        <label className="row m-2">
-                            <p className="col-6">Apellidos:</p>
-                            <input className="col-6" name="apellidos" type='text' required value={this.state.apellidos} onChange={this.handleChange} />
+                            <input className="col-6" name="name" type='text' required value={this.state.name} onChange={this.handleChange} />
                         </label>
                         <label className="row m-2">
                             <p className="col-6">email:</p>

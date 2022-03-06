@@ -15,8 +15,8 @@ class AuthService {
             "password": password
           })
           .then(response => {
-            if (response.data) {
-              localStorage.setItem("userToken", JSON.stringify(response.token));
+            if (response.data.token) {
+              localStorage.setItem("userToken", JSON.stringify(response.data.token));
             }
             return true;
            }).catch(error => {return false});
