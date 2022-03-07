@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import AuthService from '../../services/users'
+import AuthService from '../../services/auth'
 
 const Logout = () => {
 

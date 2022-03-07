@@ -36,5 +36,18 @@ class AlquilarService {
         } catch (error) {
         }
     }
+
+    allAlquilarList() {
+        try {
+            const res = axios.get(API_URL + "", { headers: authHeader() })
+                .then((response) => {
+                    return response.data;
+                }).catch(() => {
+                    return false;
+                });
+            return res;
+        } catch (error) {
+        }
+    }
 }
 export default new AlquilarService();

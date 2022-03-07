@@ -21,7 +21,7 @@ class Register extends React.Component {
                 this.setState({passwordMatch: true})
             )
             
-        AuthService.register(
+        AuthService.registerAdmin(
             this.state.name,this.state.email,this.state.password)
             .then((res)=>{
                 if(res){
@@ -58,7 +58,7 @@ class Register extends React.Component {
                     <button className="mt-5" type="submit">Acceder</button>
                 </form>
                 {this.state.passwordMatch && <p className="passwordMatch">Las contraseñas no coinciden.</p>}
-                {this.state.submitDone && <Navigate to='/movies'/>}
+                {this.state.submitDone && <Navigate to='/admin/alquileres'/>}
 
             </div>
         </div>

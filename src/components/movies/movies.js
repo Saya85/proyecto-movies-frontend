@@ -3,12 +3,12 @@ import { Link} from "react-router-dom";
 
 const Movies = () => {
     const movies = [
-        {"id":1,"title":"Accident","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
-        {"id":2,"title":"Easy Money","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
-        {"id":3,"title":"I Want Candy","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
-        {"id":4,"title":"Battle Hymn","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
-        {"id":5,"title":"King and I","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
-        {"id":6,"title":"Green Slime","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":634649,"title":"Accident","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":646385,"title":"Easy Money","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":476669,"title":"I Want Candy","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":890656,"title":"Battle Hymn","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":774825,"title":"King and I","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
+        {"id":768744,"title":"Green Slime","image":"https://pics.filmaffinity.com/Accidente-134378809-large.jpg"},
     ]
     
     return (
