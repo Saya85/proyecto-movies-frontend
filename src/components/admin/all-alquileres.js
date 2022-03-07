@@ -11,7 +11,7 @@ function Alquileres(props) {
 
     useEffect(() => {
         try {
-            AlquilarService.alquilarlist().then(response => {
+            AlquilarService.allAlquilarList().then(response => {
                 if (response === false) {
                     alert('No se puede mostrar los pedidos');
                 } else {

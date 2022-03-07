@@ -15,8 +15,8 @@ class AuthService {
             "password": password
           })
           .then(response => {
-            if (response.data) {
-              localStorage.setItem("userToken", JSON.stringify(response.token));
+            if (response.data.token) {
+              localStorage.setItem("userToken", JSON.stringify(response.data.token));
             }
             return true;
            }).catch(error => {return false});
@@ -47,6 +47,39 @@ class AuthService {
         
       }
     }
+
+    async loginAdmin(email, password) {
+      try {
+        const res = await axios.post(API_URL+'loginAdmin', {
+            "email": email,
+            "password": password
+          })
+          .then(response => {
+            if (response.data.token) {
+              localStorage.setItem("userToken", JSON.stringify(response.data.token));
+            }
+            return true;
+           }).catch(error => {return false});
+          return res;
+      } catch (error) {
+        
+      }
+  }     
+  registerAdmin(name, email, password) {
+    try {
+      return axios.post(API_URL + "register", {
+        "name": name,   
+        "email": email,
+        "password": password,
+        "roles": 'admin'
+      }).then(() => {
+        return true;
+      })  
+      .catch(() => {return false});
+    } catch (error) {
+      
+    }
+  }
    
   }
   
