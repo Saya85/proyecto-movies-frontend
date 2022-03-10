@@ -1,22 +1,30 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Navigate } from "react-router-dom";
 import AuthService from "../../services/auth";
 
-
+/* 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = { user: '', password: '', isLogged: false };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    } */
 
-    handleSubmit(e) {
+function Login(){
+    const [isLogged, setIsLogged] = useState(false);
+    const [formData, setFormData] = useState({
+        user: "",
+        password: "",
+    });
+  
+
+    const handleSubmit =(e) => {
         e.preventDefault();
-        const res = AuthService.login(this.state.user, this.state.password)
+        const res = AuthService.login(formData.user, formData.password)
         if (res) {
-            this.setState({ isLogged: true })
+            setIsLogged(true);
         } else {
             alert('Datos incorrectos o usuario invalido.')
         }
@@ -29,29 +37,27 @@ class Login extends React.Component {
         // })
     }
 
-    handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+   const handleChange =(e) =>{
+        setFormData({...formData, [formData.name]: formData.value });
     }
-
-    render() {
-        const { isLogged } = this.state;
+      /*   const { isLogged } = this.state; */
         return (
             <div>
                 {isLogged && (
                     <Navigate to="/movies" replace={true} />
                 )}
                 <h2>Login</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Correo Electronico
                             <input
-                                name='user' value={this.state.user} onChange={this.handleChange} required type="text" className="form-control" placeholder="Enter your User">
+                                name='user' value={formData.user} onChange={handleChange} required type="text" className="form-control" placeholder="Enter your User">
                             </input>
                         </label>
                         <br></br><br></br>
                         <label>Contraseña
                             <input
-                                name='password' value={this.state.password} onChange={this.handleChange} required type="password" className="form-control" placeholder="Enter your Password">
+                                name='password' value={formData.password} onChange={handleChange} required type="password" className="form-control" placeholder="Enter your Password">
                             </input>
                         </label>
                     </div>
@@ -63,6 +69,6 @@ class Login extends React.Component {
                 </form>
             </div>
         );
-    }
+    
 }
 export default Login;
